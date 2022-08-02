@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+.App{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 800px;
+}
+.board{
+  display: flex;
+  flex-wrap: wrap;
+  height: 480px;
+  width: 480px;
+}
+.tile {
+  width: 33.33%;
+  height: 33.33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid red;
+}
+.turn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
