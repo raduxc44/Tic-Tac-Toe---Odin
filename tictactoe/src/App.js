@@ -1,12 +1,11 @@
 import './App.css';
-import CurrentTurn from './CurrentTurn';
-import Gameboard from './Gameboard';
+import BoardApp from './BoardApp';
 
 function App() {
+
   return (
     <div className="App">
-      <Gameboard />
-      <CurrentTurn />
+      <BoardApp />
     </div>
   );
 }
