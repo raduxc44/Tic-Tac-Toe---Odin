@@ -1,6 +1,7 @@
 import Tile from "./Tile"
 
 function Gameboard () {
+
     return(
         <div className="board">
             <Tile />

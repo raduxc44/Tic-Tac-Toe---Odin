@@ -6,13 +6,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 800px;
+  height: 821px;
+  background-color: black;
+  color: #FFFFFF
 }
 .board{
   display: flex;
   flex-wrap: wrap;
   height: 480px;
   width: 480px;
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 0 25px #FFFFFF;
 }
 .tile {
   width: 33.33%;
@@ -20,7 +24,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid red;
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 0 25px #FFFFFF;
 }
 .turn {
   display: flex;
