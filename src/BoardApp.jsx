@@ -42,11 +42,11 @@ function Gameboard () {
             <div className="info">
                 <div className="player">
                     <div className="player-info"><h2>Player 1 :</h2></div>
-                    <div className="neon-text-x">X</div>
+                    <div className="neon-text-x neon-text-shrink">X</div>
                 </div>
                 <div className="player">
                     <div className="player-info"><h2>Player 2 :</h2></div>
-                    <div className="neon-text-o">O</div>
+                    <div className="neon-text-o neon-text-shrink">O</div>
                 </div>
             </div>
         </div>
