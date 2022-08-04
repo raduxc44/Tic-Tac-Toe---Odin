@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+}
+.App{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 821px;
+  background-color: black;
+  color: #FFFFFF
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.reset-butt {
+  background-color: transparent;
+  border: transparent;
+  color: #FFFFFF;
+  font-size: 25px;
+  text-shadow: 0 0 5px #FFFFFF;
+}
+.board{
+  display: flex;
+  flex-wrap: wrap;
+  height: 480px;
+  width: 480px;
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 0 25px #FFFFFF;
+}
+.tile {
+  width: 33.33%;
+  height: 33.33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 0 25px #FFFFFF;
+}
+.turn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.neon-text-x {
+  color: #E22E2E;
+  font-size: 70px;
+  text-shadow:
+      0 0 7px #E22E2E,
+      0 0 10px #E22E2E,
+      0 0 21px #E22E2E,
+      0 0 42px #E22E2E,
+      0 0 82px #E22E2E,
+      0 0 92px #E22E2E,
+      0 0 102px #E22E2E,
+      0 0 151px #E22E2E;
+}
+.neon-text-o {
+  color: #2c35e2;
+  font-size: 70px;
+  text-shadow:
+      0 0 7px #2c35e2,
+      0 0 10px #2c35e2,
+      0 0 21px #2c35e2,
+      0 0 42px #2c35e2,
+      0 0 82px #2c35e2,
+      0 0 92px #2c35e2,
+      0 0 102px #2c35e2,
+      0 0 151px #2c35e2;
+}
+.neon-text-shrink {
+  font-size: 35px;
+}
+.player {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
