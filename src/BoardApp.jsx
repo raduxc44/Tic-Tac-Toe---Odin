@@ -66,12 +66,29 @@ function Gameboard () {
         const checkWin = () => {
             return (checkRow() || checkCol() || checkDiag())
         }
-        //Adds styles to the correct winner
+        
+        // Tie check
+        const checkTie = () => {
+            let count = 0;
+            data.forEach((cell) => {
+                if (cell !== '') {
+                    count++;
+                }
+            })
+            return count === 9 && winner === '';
+        }
+
+        //Adds styles to the correct winner,
         if(checkWin()) {
             setWinner(currentTurn % 2 !== 0 ? 'first' : 'second')
             let playerArr = document.getElementsByClassName('player')
             if(winner === 'first') {playerArr[0].classList.add('winner')}
             else if(winner === 'second') {playerArr[1].classList.add('winner')}
+        }
+        else if(checkTie()) {
+            let playerArr = document.getElementsByClassName('player')
+            playerArr[0].classList.add('winner')
+            playerArr[1].classList.add('winner')
         }
     }, [data, currentTurn, winner])
     
