@@ -1,10 +1,18 @@
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 
 function Gameboard () {
 
     const [currentTurn, setCurrentTurn] = useState(0);
 
     const [data, setData] = useState(['', '', '', '', '', '', '', '', '']);
+
+    const [reset, setReset] = useState(false)
+    
+    let boardRef = useRef(null)
+
+    function resetBoard () {
+        setReset(true)
+    }
 
     function draw (event, index) {
 
@@ -22,13 +30,27 @@ function Gameboard () {
 
         }
     }
+    
+    useEffect(() => {
+
+        const cells = boardRef.current.children;
+        for(let i = 0; i < 9; i++) {
+            cells[i].innerText = '';
+            cells[i].classList.remove('neon-text-x', 'neon-text-o')
+        }
+        setData(['', '', '', '', '', '', '', '', ''])
+        setReset(false)
+        setCurrentTurn(0)
+        
+
+    }, [reset, setReset])
 
     return(
         <div className="main-container">
             <div className="reset-container">
-                <button className="reset-butt">RESET</button>
+                <button className="reset-butt" onClick={resetBoard}>RESET</button>
             </div>
-            <div className="board">
+            <div className="board" ref={boardRef}>
                 <div className="tile" onClick= {(e) => {draw(e, 1)}}></div>
                 <div className="tile" onClick= {(e) => {draw(e, 2)}}></div>
                 <div className="tile" onClick= {(e) => {draw(e, 3)}}></div>
