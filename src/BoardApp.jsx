@@ -2,18 +2,24 @@ import { useState, useEffect, useRef } from "react"
 
 function Gameboard () {
 
+    // Initial state declarations
+
     const [currentTurn, setCurrentTurn] = useState(0);
 
     const [data, setData] = useState(['', '', '', '', '', '', '', '', '']);
 
     const [reset, setReset] = useState(false)
+
+    const [winner, setWinner] = useState('')
     
+    //Board ref to be used in selecting it's children
     let boardRef = useRef(null)
 
     function resetBoard () {
         setReset(true)
     }
-
+    
+    // Draws on the board
     function draw (event, index) {
 
         if(data[index - 1] === '') {
@@ -27,12 +33,48 @@ function Gameboard () {
             else if(currentTurn === 1) {tiles[index - 1].classList.add('neon-text-o')}
 
             setCurrentTurn(currentTurn === 0 ? 1 : 0)
-
         }
     }
+
+    useEffect(() => {
+
+        // Checks if there's a winner on any row
+        function checkRow () {
+            let answer = false;
+            for(let i = 0; i < 9; i+=3) {   
+                answer|= (data[i] === data[i + 1] && data[i] === data[i + 2] && data[i] !== '')
+            }
+            return answer
+        }
+        
+        // Checks if there's a winner on any col
+        function checkCol () {
+            let answer = false;
+            for(let i = 0; i < 3; i++){
+                answer |= (data[i] === data[i + 3] && data[i] === data[i + 6] && data[i] !== '')
+            }
+            return answer
+        }
+        
+        // Checks if there's a winner on any diagonal
+        function checkDiag () {
+            return((data[0] === data[4] && data[0] === data[8] && data[0] !== '') 
+            || (data[2] === data[4] && data[2] === data[6] && data[2] !== ''));
+        }
+
+        //If there's a winner on any of the above, the winner is chosen according to the current turn
+        const checkWin = () => {
+            return (checkRow() || checkCol() || checkDiag())
+        }
+        if(checkWin()) {
+            setWinner(currentTurn % 2 !== 0 ? 'Player one Won!' : 'Player two Won!')
+            console.log(winner)
+        }
+    }, [data, currentTurn, winner])
     
     useEffect(() => {
 
+        //Selects each tile with it's content and performs any cleaning needed
         const cells = boardRef.current.children;
         for(let i = 0; i < 9; i++) {
             cells[i].innerText = '';
@@ -42,7 +84,6 @@ function Gameboard () {
         setReset(false)
         setCurrentTurn(0)
         
-
     }, [reset, setReset])
 
     return(
