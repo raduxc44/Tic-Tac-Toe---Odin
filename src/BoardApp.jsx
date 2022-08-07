@@ -22,7 +22,7 @@ function Gameboard () {
     // Draws on the board
     function draw (event, index) {
 
-        if(data[index - 1] === '') {
+        if(data[index - 1] === '' && winner === '') {
 
             let currentValue = currentTurn === 0 ? 'X' : 'O';
             data[index - 1] = currentValue;
@@ -66,9 +66,12 @@ function Gameboard () {
         const checkWin = () => {
             return (checkRow() || checkCol() || checkDiag())
         }
+        //Adds styles to the correct winner
         if(checkWin()) {
-            setWinner(currentTurn % 2 !== 0 ? 'Player one Won!' : 'Player two Won!')
-            console.log(winner)
+            setWinner(currentTurn % 2 !== 0 ? 'first' : 'second')
+            let playerArr = document.getElementsByClassName('player')
+            if(winner === 'first') {playerArr[0].classList.add('winner')}
+            else if(winner === 'second') {playerArr[1].classList.add('winner')}
         }
     }, [data, currentTurn, winner])
     
@@ -80,10 +83,14 @@ function Gameboard () {
             cells[i].innerText = '';
             cells[i].classList.remove('neon-text-x', 'neon-text-o')
         }
+        let playerArr = document.getElementsByClassName('player')
+        playerArr[0].classList.remove('winner')
+        playerArr[1].classList.remove('winner')
         setData(['', '', '', '', '', '', '', '', ''])
         setReset(false)
         setCurrentTurn(0)
-        
+        setWinner('')
+
     }, [reset, setReset])
 
     return(
