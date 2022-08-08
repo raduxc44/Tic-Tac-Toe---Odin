@@ -8,6 +8,10 @@ function Gameboard () {
 
     const [data, setData] = useState(['', '', '', '', '', '', '', '', '']);
 
+    const [playerOneScore, setPlayerOneScore] = useState(0);
+
+    const [playerTwoScore, setPlayerTwoScore] = useState(0)
+
     const [reset, setReset] = useState(false)
 
     const [winner, setWinner] = useState('')
@@ -75,22 +79,29 @@ function Gameboard () {
                     count++;
                 }
             })
-            return count === 9 && winner === '';
+            return count === 9;
         }
 
         //Adds styles to the correct winner,
         if(checkWin()) {
             setWinner(currentTurn % 2 !== 0 ? 'first' : 'second')
+
+            currentTurn % 2 !== 0 ? 
+            setPlayerOneScore(playerOneScore => playerOneScore + 1):
+            setPlayerTwoScore(playerTwoScore => playerTwoScore + 1)
+            
             let playerArr = document.getElementsByClassName('player')
-            if(winner === 'first') {playerArr[0].classList.add('winner')}
-            else if(winner === 'second') {playerArr[1].classList.add('winner')}
+            currentTurn % 2 !== 0 ? 
+            playerArr[0].classList.add('winner') :
+            playerArr[1].classList.add('winner')
+            
         }
         else if(checkTie()) {
             let playerArr = document.getElementsByClassName('player')
             playerArr[0].classList.add('winner')
             playerArr[1].classList.add('winner')
         }
-    }, [data, currentTurn, winner])
+    }, [currentTurn, data])
     
     useEffect(() => {
 
@@ -128,12 +139,12 @@ function Gameboard () {
             </div>
             <div className="info">
                 <div className="player">
-                    <div className="player-info"><h2>Player 1 :</h2></div>
-                    <div className="neon-text-x neon-text-shrink">X</div>
+                    <div className="player-info x"><h2>Player 1 :</h2></div>
+                    <div className="scorex">{playerOneScore}</div>
                 </div>
                 <div className="player">
-                    <div className="player-info"><h2>Player 2 :</h2></div>
-                    <div className="neon-text-o neon-text-shrink">O</div>
+                    <div className="player-info o"><h2>Player 2 :</h2></div>
+                    <div className="score o">{playerTwoScore}</div>
                 </div>
             </div>
         </div>
