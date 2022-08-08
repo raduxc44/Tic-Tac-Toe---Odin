@@ -76,6 +76,33 @@
 .neon-text-shrink {
   font-size: 35px;
 }
+.score {
+  font-size: 25px;
+}
+.score-x{
+  color: #E22E2E;
+  text-shadow:
+      0 0 7px #E22E2E,
+      0 0 20px #E22E2E,
+      0 0 21px #E22E2E,
+      0 0 42px #E22E2E,
+      0 0 82px #E22E2E,
+      0 0 92px #E22E2E,
+      0 0 102px #E22E2E,
+      0 0 151px #E22E2E;
+}
+.score-o{
+  color: #2c35e2;
+  text-shadow:
+      0 0 7px #2c35e2,
+      0 0 10px #2c35e2,
+      0 0 21px #2c35e2,
+      0 0 42px #2c35e2,
+      0 0 82px #2c35e2,
+      0 0 92px #2c35e2,
+      0 0 102px #2c35e2,
+      0 0 151px #2c35e2;
+}
 .player {
   display: flex;
   align-items: center;

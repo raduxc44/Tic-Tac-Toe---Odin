@@ -139,12 +139,12 @@ function Gameboard () {
             </div>
             <div className="info">
                 <div className="player">
-                    <div className="player-info x"><h2>Player 1 :</h2></div>
-                    <div className="scorex">{playerOneScore}</div>
+                    <div className="player-info"><h2>Player 1 :</h2></div>
+                    <div className="score score-x">{playerOneScore}</div>
                 </div>
                 <div className="player">
-                    <div className="player-info o"><h2>Player 2 :</h2></div>
-                    <div className="score o">{playerTwoScore}</div>
+                    <div className="player-info"><h2>Player 2 :</h2></div>
+                    <div className="score score-o">{playerTwoScore}</div>
                 </div>
             </div>
         </div>
