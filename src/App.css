@@ -130,3 +130,24 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 500px) {
+  .board{
+    display: flex;
+    flex-wrap: wrap;
+    height: 40vh;
+    width: 41vh;
+    border: 0.3vh solid #FFFFFF;
+    box-shadow: 0 0 1vw #FFFFFF;
+  }
+  .tile{
+    border: 0.3vh solid #FFFFFF;
+    box-shadow: 0 0 1vw #FFFFFF;
+    width: 33.33%;
+    height: 33.33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+}
