@@ -132,6 +132,10 @@
 }
 
 @media (max-width: 500px) {
+  .App {
+    justify-content: flex-start;
+    padding-top: 25%;
+  }
   .board{
     display: flex;
     flex-wrap: wrap;
