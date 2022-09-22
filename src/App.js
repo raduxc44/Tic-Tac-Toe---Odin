@@ -11,7 +11,6 @@ function App() {
     const [playerTwoScore, setPlayerTwoScore] = useState(0);
     const [reset, setReset] = useState(false);
     const [winner, setWinner] = useState('');
-    let tileContainers = document.getElementsByClassName('tile-container')
     let tiles = document.getElementsByClassName('tile');
 
       //Board ref to be used in selecting it's children
