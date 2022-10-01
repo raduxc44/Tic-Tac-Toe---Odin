@@ -81,13 +81,16 @@
 .info {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
 }
 .player {
   display: flex;
   align-items: center;
-  width: 17vw;
-  justify-content: space-between;
+  width: auto;
+}
+.player-info {
+  margin-right: 2vw
 }
 .player h2 {
   font-size: 3vh;
@@ -96,6 +99,7 @@
   font-size: 4vh;
 }
 .score-x{
+  padding-left: 0.3vw;
   color: #E22E2E;
       text-shadow:
       0 0 0.8vh #E22E2E,
@@ -137,6 +141,11 @@
   }
 }
 
+@media screen and (max-width: 1000px) {
+  .score-x {
+    padding-left: 0.3vw;
+  }
+}
 @media (max-width: 500px) {
   .App {
     justify-content: flex-start;
@@ -145,21 +154,30 @@
   .board{
     display: flex;
     flex-wrap: wrap;
-    height: 40vh;
-    width: 41vh;
+    width: 75%;
+    height: 50%;
   }
   .tile-container{
     border: 0.5vh solid #FFFFFF;
     box-shadow: 0 0 1vw #FFFFFF;
-    width: 20vh;
-    height: 20.1vh;
+    width: 33.33%;
+    height: 33.33%;
     cursor: pointer;
   }
   .tile{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20vh;
-    height: 20.1vh;
+    width: 11.6vh;
+    height: 11.5vh;
+  }
+  .info{
+    width: 50vw;
+  }
+  .player{
+    width: auto;
+  }
+  .player-info{
+    margin-right: 5vw;
   }
 }
